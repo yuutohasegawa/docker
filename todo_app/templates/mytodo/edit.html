@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+- 編集 -
+{% endblock %}
+{% block contents %}
+<div class="container">
+    <div class="index add">
+        <h1>タスクを編集</h1>
+        <form action="{% url 'edit' task.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="button submit">保存</button>
+        </form>
+        <a href="{% url 'index' %}" class="button-link cancel">キャンセル</a>
+    </div>
+</div>
+{% endblock %}
